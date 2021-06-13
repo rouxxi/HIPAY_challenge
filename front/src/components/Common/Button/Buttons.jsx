@@ -1,6 +1,6 @@
 import Button from '@material-ui/core/Button';
 
-function ButtonNav(props) {
+function Buttons(props) {
     const {
         color, //'default'| 'inherit'| 'primary' | 'secondary'
         text, // size 'large'| 'medium'| 'small'
@@ -20,4 +20,4 @@ function ButtonNav(props) {
         </div>
     )
 }
-export default ButtonNav;
+export default Buttons;

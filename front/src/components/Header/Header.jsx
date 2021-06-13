@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import logo from '../../assert/logo-hipay.png'
 import HeaderStyle from './HeaderStyle';
-import ButtonNav from '../Common/Button/ButtonNav';
+import Buttons from '../Common/Button/Buttons';
 import MenuIcon from '@material-ui/icons/Menu';
 import SideBar from '../SideBar/SideBar';
 import {useHistory} from 'react-router-dom';
@@ -28,7 +28,7 @@ function Header() {
                 <MenuIcon className={classes.IconeBurger} onClick={()=> setMenuBurgerOpen(!MenuBurgerOpen)} color='inherit'/>
 
                 <div className={classes.buttonWrapper}>
-                    <ButtonNav 
+                    <Buttons 
                         text='Home'
                         OnClick={()=> {
                         setMenuBurgerOpen(!MenuBurgerOpen)
@@ -36,7 +36,7 @@ function Header() {
                         }} 
                         size='medium' 
                         color='inherit'/>
-                    <ButtonNav text='Research' OnClick={()=> 
+                    <Buttons text='Research' OnClick={()=> 
                         {
                             setMenuBurgerOpen(!MenuBurgerOpen)
                             moveTo('research')
