@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import logo from '../../assert/logo-hipay.png'
 import HeaderStyle from './HeaderStyle';
 import ButtonNav from '../Common/Button/ButtonNav';
 import MenuIcon from '@material-ui/icons/Menu';
-import SideBar from '../Common/SideBar/SideBar';
+import SideBar from '../SideBar/SideBar';
 import {useHistory} from 'react-router-dom';
 
 function Header() {
