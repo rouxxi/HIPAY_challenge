@@ -11,7 +11,7 @@ const HeaderStyle = makeStyles({
         justifyContent: 'space-between',
         alignItems: 'center',
         padding: '0 25px',
-        backgroundColor: 'rgba(0,0,0,0.8)'
+        backgroundColor: 'rgba(0,0,0,0.9)'
     },
 
     logoWrapper: {
