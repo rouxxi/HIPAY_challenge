@@ -4,13 +4,16 @@ import HeaderStyle from './HeaderStyle';
 import ButtonNav from '../Common/Button/ButtonNav';
 import MenuIcon from '@material-ui/icons/Menu';
 import SideBar from '../Common/SideBar/SideBar';
+import {useHistory} from 'react-router-dom';
+
 function Header() {
     const [MenuBurgerOpen, setMenuBurgerOpen] = useState(false);
 
     const classes = HeaderStyle();
+    const history = useHistory();
 
-    const handleNavBar = (state) => {
-        setMenuBurgerOpen(!state)
+    const moveTo = (page) => {
+        history.push(`/${page}`)
     }
 
     return (
@@ -23,8 +26,8 @@ function Header() {
                 <MenuIcon className={classes.IconeBurger} onClick={()=> setMenuBurgerOpen(!MenuBurgerOpen)} color='inherit'/>
 
                 <div className={classes.buttonWrapper}>
-                    <ButtonNav text='Home' size='medium' color='inherit'/>
-                    <ButtonNav text='Research' size='medium' color='inherit'/>
+                    <ButtonNav text='Home' OnClick={()=> history.push('/')} size='medium' color='inherit'/>
+                    <ButtonNav text='Research' OnClick={()=> moveTo('research')} size='medium' color='inherit'/>
                 </div>
 
                 <SideBar  isOpen={MenuBurgerOpen} />
