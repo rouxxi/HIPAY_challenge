@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from '../../assert/logo-hipay.png'
 import HeaderStyle from './HeaderStyle';
 import ButtonNav from '../Common/Button/ButtonNav';
@@ -16,6 +16,8 @@ function Header() {
         history.push(`/${page}`)
     }
 
+
+
     return (
         <div className={classes.headerWrapper}>
                 <div className={classes.logoWrapper}>
@@ -26,11 +28,25 @@ function Header() {
                 <MenuIcon className={classes.IconeBurger} onClick={()=> setMenuBurgerOpen(!MenuBurgerOpen)} color='inherit'/>
 
                 <div className={classes.buttonWrapper}>
-                    <ButtonNav text='Home' OnClick={()=> history.push('/')} size='medium' color='inherit'/>
-                    <ButtonNav text='Research' OnClick={()=> moveTo('research')} size='medium' color='inherit'/>
+                    <ButtonNav 
+                        text='Home'
+                        OnClick={()=> {
+                        setMenuBurgerOpen(!MenuBurgerOpen)
+                        history.push('/')
+                        }} 
+                        size='medium' 
+                        color='inherit'/>
+                    <ButtonNav text='Research' OnClick={()=> 
+                        {
+                            setMenuBurgerOpen(!MenuBurgerOpen)
+                            moveTo('research')
+                            }
+                            } 
+                            size='medium' 
+                            color='inherit'/>
                 </div>
 
-                <SideBar  isOpen={MenuBurgerOpen} />
+                <SideBar setMenuBurgerOpen={setMenuBurgerOpen}  isOpen={MenuBurgerOpen} />
         </div>
     )
 }

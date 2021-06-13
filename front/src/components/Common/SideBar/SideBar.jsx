@@ -6,13 +6,19 @@ import {useHistory} from 'react-router-dom';
 import SearchIcon from '@material-ui/icons/Search';
 
 function SideBar(props) {
-    const {isOpen} = props;
+    const {isOpen, setMenuBurgerOpen} = props;
 
     const classes = SideBarStyle(); 
     const history = useHistory();
 
     const moveTo = (page) => {
-        history.push(`/${page}`)
+        setMenuBurgerOpen(false);
+        history.push(`/${page}`);
+    }
+
+    const moveToHome =() => {
+        setMenuBurgerOpen(false);
+        history.push(`/`);
     }
 
     return (
@@ -22,7 +28,12 @@ function SideBar(props) {
             <h2> Movies Achives</h2>
                 <List>
                     {['Home', 'Research'].map((text, index) => (
-                    <ListItem button key={text} onClick={()=> text === 'Home' ? history.push('/') :moveTo(text.toLocaleLowerCase()) }>
+                    <ListItem button key={text} 
+                    onClick={
+                        ()=> 
+                        text === 'Home'  ? 
+                        moveToHome()
+                        :moveTo(text.toLocaleLowerCase()) }>
                         <ListItemIcon> 
                             {
                             text === 'Home' ? 
