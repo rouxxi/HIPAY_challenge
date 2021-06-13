@@ -23,18 +23,6 @@ const Swapper = styled.div`
     transition: 0.3s all ease-in-out;
 `
 
-const fakeData = [
-    {
-        id:1,
-        name: 'le parain',
-        image: 'https://www.cinechronicle.com/wp-content/uploads/2020/08/Le-Parrain-les-archives-inedites-de-la-trilogie.jpg'
-},
-{
-    id:2,
-    name: 'Forest Gump',
-    image: 'https://www.cinehorizons.net/sites/default/files/affiches/affiche_forrest_gump.jpg'
-}
-]
 
 function Sliders() {
     const [idActive, setIdActive] = useState(1);
@@ -69,7 +57,9 @@ function Sliders() {
             <SkipPreviousOutlinedIcon onClick={() => handleSwapPreview(idActive)}  className={classes.swapButton} color='inherit'  fontSize='inherit'/>
                 <div className={classes.sliderDisplayed}>
                     <Swapper  id={idActive} >
-                        {data.movie.length >= 1 && data.movie.map((movie) => {
+                        {console.log('data', data)}
+                        {console.log('data.movie', data.movie)}
+                        {data.movie.map((movie) => {
                             return  <MovieCard key={movie.name} urlImage={movie.image} alt={movie.name}/>
                         })}
                     </Swapper>
