@@ -3,8 +3,8 @@ import SearchBarStyle from './SearchBarStyle';
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
 
-function SearchBar() {
-
+function SearchBar(props) {
+    const {researchField, setResearchField} = props;
     const classes = SearchBarStyle();
     return (
 
@@ -16,6 +16,8 @@ function SearchBar() {
             <InputBase
               placeholder="Search…"
               classes={classes.searchInput}
+              value={researchField}
+              onChange={(e)=> setResearchField(e.target.value)}
               inputProps={{ 'aria-label': 'search' }}
             />
           </div>

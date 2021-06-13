@@ -11,7 +11,7 @@ function Research() {
     return (
         <div className={classes.main}>
             <Typography  className={classes.title} variant='h3'>Find the chosen One !</Typography>
-            <SearchBar />
+            <SearchBar researchField={researchField} setResearchField={setResearchField} />
             <Button className={classes.button}  color='inherit' >
                 Valid Research
             </Button>
