@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core";
 
 const HomeStyle = makeStyles( {
     main: {
-        padding: '90px 0 0 0'
+        padding: '110px 0 0 0'
     }
 })
 
