@@ -9,6 +9,7 @@ const Swapper = styled.div`
     display: flex;
     flex-wrap: nowrap;
     transform: translateX(${({ id }) => id === 1 ? '0' : (-100*(id-1) +'%').toString() });
+    transition: 0.3s all ease-in-out;
 `
 
 const fakeData = [

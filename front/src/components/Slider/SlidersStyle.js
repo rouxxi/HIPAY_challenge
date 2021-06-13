@@ -15,7 +15,6 @@ const SlidersStyle = makeStyles({
         width:'250px',
         overflow: 'hidden',
         margin: '30px 0',
-        transition: '0.3 all ease-in-out',
     },
     swapButton: {
         border: '2px solid  rgba(255,255,255,0.3)',
