@@ -4,7 +4,18 @@ import SlidersStyle from './SlidersStyle';
 import SkipNextOutlinedIcon from '@material-ui/icons/SkipNextOutlined';
 import SkipPreviousOutlinedIcon from '@material-ui/icons/SkipPreviousOutlined';
 import styled from 'styled-components';
+import { useQuery, gql } from '@apollo/client';
 
+const FETCH_ALL_MOVIES = gql`
+   query getAllMovies {
+        movie {
+            id
+            name
+            image
+        }
+    }
+
+`
 const Swapper = styled.div`
     display: flex;
     flex-wrap: nowrap;
@@ -26,13 +37,17 @@ const fakeData = [
 ]
 
 function Sliders() {
-    const [data, setData] = useState([]);
     const [idActive, setIdActive] = useState(1);
- 
+    const { loading, error, data} = useQuery(FETCH_ALL_MOVIES);
+        if (loading) { 
+            return 'Loading...'
+        };
+        if (error) {
+            return `Error! ${error.message}`
+        };
+
     const classes = SlidersStyle();
-
-
-    
+   
     function handleSwapPreview(id) {
         if (id === 1) {
          setIdActive(data.length)
@@ -49,16 +64,12 @@ function Sliders() {
            }
        }
 
-    useEffect(()=> {
-        setData(fakeData)
-    }, [])
-
     return (
         <div className={classes.sliderWrapper}>
             <SkipPreviousOutlinedIcon onClick={() => handleSwapPreview(idActive)}  className={classes.swapButton} color='inherit'  fontSize='inherit'/>
                 <div className={classes.sliderDisplayed}>
                     <Swapper  id={idActive} >
-                        {data.length >= 1 && data.map((movie) => {
+                        {data.movie.length >= 1 && data.movie.map((movie) => {
                             return  <MovieCard key={movie.name} urlImage={movie.image} alt={movie.name}/>
                         })}
                     </Swapper>
