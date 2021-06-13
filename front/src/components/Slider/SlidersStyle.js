@@ -11,10 +11,11 @@ const SlidersStyle = makeStyles({
         fontSize: '30px',
     },
     sliderDisplayed: {
+        height:'400px',
         width:'250px',
-        display: 'flex',
         overflow: 'hidden',
         margin: '30px 0',
+        transition: '0.3 all ease-in-out',
     },
     swapButton: {
         border: '2px solid  rgba(255,255,255,0.3)',
