@@ -2,8 +2,7 @@
 
 ## How it is build
 
- Create with the concept of `Mobile First`  
- All the project is in a container of 2 image docker  
+ The app is build with the concept of `Mobile First`  
 
 ### front
  Build with React  
@@ -20,6 +19,8 @@
 
 
 ## How Start the Project
+
+ All the project is in a container of 2 image docker 
 
 ### With docker-compose
 Place yourself at the project's root and use:  
