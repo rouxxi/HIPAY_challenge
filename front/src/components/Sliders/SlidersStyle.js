@@ -15,6 +15,13 @@ const SlidersStyle = makeStyles({
     width: "250px",
     overflow: "hidden",
     margin: "30px 0",
+    
+    '@media(min-width: 680px)': {
+      height: "700px",
+      width: "400px",
+      overflow: "hidden",
+      margin: "20px ",
+  },
   },
   swapButton: {
     border: "2px solid  rgba(255,255,255,0.3)",
@@ -23,6 +30,10 @@ const SlidersStyle = makeStyles({
     "&:hover": {
       cursor: "pointer",
     },
+    '@media(min-width: 680px)': {
+      fontSize: '60px',
+      borderRadius: "15px",
+  },
   },
 });
 

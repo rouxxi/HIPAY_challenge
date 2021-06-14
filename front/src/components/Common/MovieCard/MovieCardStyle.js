@@ -7,7 +7,13 @@ const MovieCardStyle = makeStyles( {
         objectFit: 'cover',
         borderRadius: '15px',
 
-    }
-})
+        '@media(min-width: 680px)': {
+            height: "700px",
+            width: "400px",
+            objectFit: 'cover',
+            borderRadius: '15px',
+    }}
+}
+)
 
 export default MovieCardStyle;
