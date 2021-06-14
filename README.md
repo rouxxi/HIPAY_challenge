@@ -7,8 +7,8 @@
   All the Data are lead by GraphQl and the Apollo FrameWork
 
   There is just 2 routes:
-    - One will return all Movie in the data
-    - One will return just some movies, if their name match with an input research
+>    - One will return all Movie in the data
+>    - One will return just some movies, if their name match with an input research
 
 ### The frontend
 
@@ -18,7 +18,8 @@
 ### With docker-compose
 Place yourself at the project's root and use:
 
-  `docker-compose build --no-cache `
-  `docker up -d`  
+>  `docker-compose build --no-cache `
 
-The server will run on the port:8080 and the front on port:3000 
+>  `docker up -d`  
+
+The server will run on the port: 8080 and the front on port: 3000 
