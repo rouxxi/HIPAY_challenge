@@ -2,17 +2,17 @@
 
 ## How it is build
 
-<> Create with the concept of `Mobile First`
-<> All the project is in a container of 2 image docker
+> Create with the concept of `Mobile First`
+> All the project is in a container of 2 image docker
 
 ### front
-<> Build with React
-<> Router React-router-dom
-<> frameWork CSS: material ui
-<> add styled-component for some conditions in one component
+> Build with React
+> Router React-router-dom
+> frameWork CSS: material ui
+> add styled-component for some conditions in one component
 
 ### back
-<> Framework backend : GraphQl and the Apollo + express
+> Framework backend : GraphQl and the Apollo + express
 
   There is just 2 routes:
 >    - One will return all Movie in the data
