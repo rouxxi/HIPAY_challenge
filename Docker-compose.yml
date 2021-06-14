@@ -1,0 +1,25 @@
+version: "3.9"
+
+services: 
+    front:
+        container_name: front-challenge-hipay
+        build:
+            context: .
+            dockerfile: ./bin/front/Dockerfile
+        volumes: 
+            - ./front/:/var/www/html/front/
+        env_file: 
+            - ./bin/front/conf.env
+        ports:
+            - "3000:3000"
+    back:
+        container_name: back-challenge-hipay
+        build:
+            context: .
+            dockerfile: ./bin/backend/Dockerfile
+        volumes: 
+            - ./backend:/var/www/html/backend/
+        env_file: 
+            - ./bin/backend/conf.env
+        ports:
+            - "8080:8080"
