@@ -4,7 +4,7 @@ import SearchBar from '../../components/SearchBar/SearchBar';
 import ResearchStyle from './ResearchStyle';
 import { Typography } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
-import { useQuery ,gql } from '@apollo/client';
+import { useQuery ,gql, useLazyQuery } from '@apollo/client';
 
 const FETCH_ALL_MOVIES = gql`
    query { 
@@ -17,20 +17,35 @@ const FETCH_ALL_MOVIES = gql`
         }
 }
 `
-
+const FETCH_MOVIES_BY_NAME = gql`
+        query ($researchInField:String!)  { 
+         getMoviesByName(name: $researchInField) {
+              name
+          }
+        }
+    `
+    
 function Research() {
     const [allView, setAllView] = useState(true);
 
     const [researchField, setResearchField] = useState('');
 
     const {data} = useQuery(FETCH_ALL_MOVIES);
-
+    const [getDataByName, all] = useLazyQuery(FETCH_MOVIES_BY_NAME, {variables: { researchInField: researchField }});
 
     const classes = ResearchStyle();
 
     const handleResearch = () => {
         setAllView(!allView)
     }   
+
+    useEffect(()=> {
+        if (!allView) {
+            getDataByName()
+        }
+        if (allView) {
+        }
+    }, [allView])
 
     return (
         <div className={classes.main}>
@@ -39,7 +54,8 @@ function Research() {
             <Button className={classes.button}  color='inherit' onClick={()=> handleResearch()}>
                 Valid Research
             </Button>
-            <AllMovieList allView={allView} allMovie={data} researchField={researchField} />
+           {data && <AllMovieList  allView={allView} data={all && all.data && all.data.getMoviesByName && !allView ?all.data.getMoviesByName : data.getAllMovies } />
+           } 
         </div>
     )
 }
