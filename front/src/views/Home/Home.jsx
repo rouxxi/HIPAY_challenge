@@ -20,6 +20,7 @@ function Home() {
 
   return (
     <div className={classes.main}>
+      <h1>Most wanted movies</h1>
       <Sliders data={data} />
     </div>
   );

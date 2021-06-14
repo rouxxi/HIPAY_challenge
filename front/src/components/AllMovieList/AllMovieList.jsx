@@ -35,7 +35,7 @@ function AllMovieList(props) {
                   </ListItemAvatar>
                   <ListItemText
                     primary={movie.name}
-                    secondary={`${movie.director}, ${movie.year}`}
+                    secondary={`${movie.year}`}
                   />
                 </ListItem>
                 <Divider />
