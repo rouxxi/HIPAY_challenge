@@ -4,18 +4,7 @@ import SlidersStyle from './SlidersStyle';
 import SkipNextOutlinedIcon from '@material-ui/icons/SkipNextOutlined';
 import SkipPreviousOutlinedIcon from '@material-ui/icons/SkipPreviousOutlined';
 import styled from 'styled-components';
-import { useQuery, gql } from '@apollo/client';
 
-const FETCH_ALL_MOVIES = gql`
-   query getAllMovies {
-        movie {
-            id
-            name
-            image
-        }
-    }
-
-`
 const Swapper = styled.div`
     display: flex;
     flex-wrap: nowrap;
@@ -24,28 +13,22 @@ const Swapper = styled.div`
 `
 
 
-function Sliders() {
+function Sliders(props) {
+    const {data} = props;
     const [idActive, setIdActive] = useState(1);
-    const { loading, error, data} = useQuery(FETCH_ALL_MOVIES);
-        if (loading) { 
-            return 'Loading...'
-        };
-        if (error) {
-            return `Error! ${error.message}`
-        };
 
     const classes = SlidersStyle();
    
     function handleSwapPreview(id) {
         if (id === 1) {
-         setIdActive(data.length)
+         setIdActive(data.getAllMovies.length)
         } else {
             setIdActive(id-1)
         }
     }
 
     function handleSwapNext(id) {
-        if (id === data.length) {
+        if (id === data.getAllMovies.length) {
             setIdActive(1)
            } else {
                setIdActive(id+1)
@@ -57,9 +40,7 @@ function Sliders() {
             <SkipPreviousOutlinedIcon onClick={() => handleSwapPreview(idActive)}  className={classes.swapButton} color='inherit'  fontSize='inherit'/>
                 <div className={classes.sliderDisplayed}>
                     <Swapper  id={idActive} >
-                        {console.log('data', data)}
-                        {console.log('data.movie', data.movie)}
-                        {data.movie.map((movie) => {
+                        {data && data.getAllMovies && data.getAllMovies.map((movie) => {
                             return  <MovieCard key={movie.name} urlImage={movie.image} alt={movie.name}/>
                         })}
                     </Swapper>

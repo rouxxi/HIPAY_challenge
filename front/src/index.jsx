@@ -6,18 +6,18 @@ import reportWebVitals from './reportWebVitals';
 import {
   ApolloClient,
   InMemoryCache,
-  ApolloProvider
+  ApolloProvider 
 } from "@apollo/client";
 
 const client = new ApolloClient({
-  uri: 'https://localhost:8080/',
-  cache: new InMemoryCache()
+  uri: "http://localhost:8080/graphql/",
+  cache: new InMemoryCache(),
 });
 
 ReactDOM.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-    <App />
+      <App />
     </ApolloProvider>
   </React.StrictMode>,
   document.getElementById('root')
