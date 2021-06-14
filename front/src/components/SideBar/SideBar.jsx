@@ -28,7 +28,7 @@ function SideBar(props) {
         <div className={classes.navMenu}>
             <h2> Movies Achives</h2>
                 <List>
-                    {['Home', 'Research'].map((text, index) => (
+                    {['Home', 'Research'].map((text) => (
                     <ListItem button key={text} 
                     onClick={
                         ()=> 

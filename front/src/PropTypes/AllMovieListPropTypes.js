@@ -1,6 +1,6 @@
- import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
- const AllMovieListPropTypes = {
+const AllMovieListPropTypes = {
    data:PropTypes.arrayOf(PropTypes.objectOf(PropTypes.number || PropTypes.string))
  }
 
