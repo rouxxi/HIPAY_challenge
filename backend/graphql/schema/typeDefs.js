@@ -9,6 +9,7 @@ const typeDefs = gql`
     id: ID
     name: String!
     year: Int!
+    image: String!
     director: Int!
   }
 
