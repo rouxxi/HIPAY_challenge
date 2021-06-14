@@ -20,7 +20,10 @@ const FETCH_ALL_MOVIES = gql`
 const FETCH_MOVIES_BY_NAME = gql`
         query ($researchInField:String!)  { 
          getMoviesByName(name: $researchInField) {
-              name
+            id
+            image
+            name
+            year
           }
         }
     `
@@ -44,6 +47,7 @@ function Research() {
             getDataByName()
         }
         if (allView) {
+            setResearchField('')
         }
     }, [allView])
 
@@ -52,7 +56,7 @@ function Research() {
             <Typography  className={classes.title} variant='h3'>Find the chosen One !</Typography>
             <SearchBar researchField={researchField} setResearchField={setResearchField} />
             <Button className={classes.button}  color='inherit' onClick={()=> handleResearch()}>
-                Valid Research
+                {allView ? 'Enable research' : 'Back to all Movies'}
             </Button>
            {data && <AllMovieList  allView={allView} data={all && all.data && all.data.getMoviesByName && !allView ?all.data.getMoviesByName : data.getAllMovies } />
            } 

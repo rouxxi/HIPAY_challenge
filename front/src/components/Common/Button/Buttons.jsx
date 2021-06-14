@@ -1,4 +1,5 @@
 import Button from '@material-ui/core/Button';
+import ButtonsPropTypes from '../../../PropTypes/ButtonsPropTypes';
 
 function Buttons(props) {
     const {
@@ -20,4 +21,6 @@ function Buttons(props) {
         </div>
     )
 }
+
+Buttons.propTypes = ButtonsPropTypes;
 export default Buttons;

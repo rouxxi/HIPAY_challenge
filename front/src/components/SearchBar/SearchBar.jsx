@@ -2,6 +2,7 @@ import React from 'react';
 import SearchBarStyle from './SearchBarStyle';
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
+import SearchBarPropTypes from '../../PropTypes/SearchBarPropTypes';
 
 function SearchBar(props) {
     const {researchField, setResearchField} = props;
@@ -24,6 +25,7 @@ function SearchBar(props) {
 
     )
 }
+SearchBar.propTypes = SearchBarPropTypes;
 
 export default SearchBar;
 

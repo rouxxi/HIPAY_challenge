@@ -1,5 +1,6 @@
 import React from 'react';
 import MovieCardStyle from './MovieCardStyle'
+import MovieCardPropTypes from '../../../PropTypes/MovieCardPropTypes';
 
 function MovieCard(props) {
     const {name, urlImage} = props;
@@ -11,4 +12,6 @@ function MovieCard(props) {
     )
 }
 
+
+MovieCard.propeTypes = MovieCardPropTypes;
 export default MovieCard;

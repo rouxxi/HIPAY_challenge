@@ -4,6 +4,7 @@ import { ListItemIcon, ListItemText, ListItem, List, Divider } from '@material-u
 import HomeIcon from '@material-ui/icons/Home';
 import {useHistory} from 'react-router-dom';
 import SearchIcon from '@material-ui/icons/Search';
+import SideBarPropTypes from '../../PropTypes/SideBarPropTypes';
 
 function SideBar(props) {
     const {isOpen, setMenuBurgerOpen} = props;
@@ -52,6 +53,8 @@ function SideBar(props) {
         </div>
     )
 }
+
+SideBar.propTypes = SideBarPropTypes;
 
 export default SideBar;
 

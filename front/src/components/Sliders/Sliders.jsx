@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import MovieCard from '../Common/MovieCard/MovieCard';
 import SlidersStyle from './SlidersStyle';
 import SkipNextOutlinedIcon from '@material-ui/icons/SkipNextOutlined';
 import SkipPreviousOutlinedIcon from '@material-ui/icons/SkipPreviousOutlined';
 import styled from 'styled-components';
+import SlidersPropTypes from '../../PropTypes/SlidersPropTypes';
 
 const Swapper = styled.div`
     display: flex;
@@ -50,5 +51,7 @@ function Sliders(props) {
         </div> 
     )
 }
+
+Sliders.propTypes = SlidersPropTypes;
 
 export default Sliders

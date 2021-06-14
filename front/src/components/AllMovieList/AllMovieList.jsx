@@ -1,14 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import AllMovieListStyle from './AllMovieListStyle';
 import { ListItem, ListItemAvatar, List, Avatar, ListItemText, Divider } from '@material-ui/core';
 import LocalMoviesIcon from '@material-ui/icons/LocalMovies';
-
+import AllMovieListPropTypes from '../../PropTypes/AllMovieListPropTypes';
 
 function AllMovieList(props) {
-    const {data, allView} = props;
+    const {data } = props;
     const classes = AllMovieListStyle();
-
-
 
     return (
         <div className={classes.main}>
@@ -16,7 +14,7 @@ function AllMovieList(props) {
             <List className={classes.root}>
                 
                 
-               {data && data.map((movie) => {
+               {data && data.length === 0 ? <ListItem> <p>No results</p></ListItem>: data.map((movie) => {
                     return <div key={movie.id}>
                          <ListItem>
                     <ListItemAvatar>
@@ -35,5 +33,6 @@ function AllMovieList(props) {
         </div>
     )
 }
+AllMovieList.propTypes = AllMovieListPropTypes;
 
 export default AllMovieList;
