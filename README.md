@@ -25,7 +25,7 @@
 ### With docker-compose
 Place yourself at the project's root and use:  
 
->  `docker-compose build --no-cache `
+>  `docker-compose build --no-cache `  
 >  `docker up -d`  
 
   
